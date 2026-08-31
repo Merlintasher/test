@@ -1,16 +1,17 @@
 <!doctype html>
-<html lang="ru">
+
+<html lang="uk">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Welcome</title>
+  <title>Ласкаво просимо</title>
 
   <style>
     :root{
       --bg1:#071021;
       --bg2:#0b2a4a;
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
 
       --g1:#3b82f6;
       --g2:#22d3ee;
@@ -18,15 +19,26 @@
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; scroll-behavior: smooth; }
+
+    html,
+    body{
+      height:100%;
+      scroll-behavior:smooth;
+    }
 
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Inter",Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
 
-      /* живой фон */
-      background: linear-gradient(120deg, var(--bg1), var(--bg2), #08233d, #0a3b5e);
+      /* Анімований фон */
+      background:linear-gradient(
+        120deg,
+        var(--bg1),
+        var(--bg2),
+        #08233d,
+        #0a3b5e
+      );
       background-size:300% 300%;
       animation:bgMove 16s ease-in-out infinite;
 
@@ -34,67 +46,127 @@
     }
 
     @keyframes bgMove{
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
+      0%{ background-position:0% 50%; }
+      50%{ background-position:100% 50%; }
+      100%{ background-position:0% 50%; }
     }
 
-    /* слой blobs */
+    /* Фонові світлові елементи */
     .bg-blobs{
-      position:fixed; inset:0; overflow:hidden;
-      pointer-events:none; z-index:0;
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:0;
     }
+
     .blob{
       position:absolute;
-      width:560px; height:560px;
+      width:560px;
+      height:560px;
       border-radius:50%;
       filter:blur(70px);
       opacity:.45;
       transform:translate3d(0,0,0);
     }
-    .b1{left:-180px; top:-180px; background:#22d3ee; animation:float1 18s ease-in-out infinite;}
-    .b2{right:-220px; top:10%; background:#3b82f6; animation:float2 22s ease-in-out infinite;}
-    .b3{left:20%; bottom:-240px; background:#60a5fa; animation:float3 26s ease-in-out infinite;}
 
-    @keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(160px,120px) scale(1.18)}}
-    @keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-180px,90px) scale(1.12)}}
-    @keyframes float3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(140px,-160px) scale(1.22)}}
+    .b1{
+      left:-180px;
+      top:-180px;
+      background:#22d3ee;
+      animation:float1 18s ease-in-out infinite;
+    }
 
-    /* общий градиент текста */
+    .b2{
+      right:-220px;
+      top:10%;
+      background:#3b82f6;
+      animation:float2 22s ease-in-out infinite;
+    }
+
+    .b3{
+      left:20%;
+      bottom:-240px;
+      background:#60a5fa;
+      animation:float3 26s ease-in-out infinite;
+    }
+
+    @keyframes float1{
+      0%,100%{
+        transform:translate(0,0) scale(1);
+      }
+      50%{
+        transform:translate(160px,120px) scale(1.18);
+      }
+    }
+
+    @keyframes float2{
+      0%,100%{
+        transform:translate(0,0) scale(1);
+      }
+      50%{
+        transform:translate(-180px,90px) scale(1.12);
+      }
+    }
+
+    @keyframes float3{
+      0%,100%{
+        transform:translate(0,0) scale(1);
+      }
+      50%{
+        transform:translate(140px,-160px) scale(1.22);
+      }
+    }
+
+    /* Анімований градієнтний текст */
     .gradient{
-      background: linear-gradient(90deg, var(--g1), var(--g2), var(--g3));
+      background:linear-gradient(
+        90deg,
+        var(--g1),
+        var(--g2),
+        var(--g3)
+      );
       background-size:300% 100%;
       animation:textFlow 4.5s ease-in-out infinite;
+
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
       background-clip:text;
+
       display:inline-block;
     }
 
     @keyframes textFlow{
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
+      0%{ background-position:0% 50%; }
+      50%{ background-position:100% 50%; }
+      100%{ background-position:0% 50%; }
     }
 
-    main{ position:relative; z-index:1; }
+    main{
+      position:relative;
+      z-index:1;
+    }
 
-    /* HERO */
+    /* Головний екран */
     .hero{
       min-height:100vh;
       display:grid;
       place-items:center;
       padding:28px;
     }
+
     .card{
       width:min(980px,100%);
       padding:clamp(18px,3.5vw,34px);
       border-radius:28px;
+
       background:rgba(0,0,0,.28);
       border:1px solid rgba(255,255,255,.10);
       box-shadow:0 30px 80px rgba(0,0,0,.40);
+
       backdrop-filter:blur(14px);
       -webkit-backdrop-filter:blur(14px);
+
       text-align:center;
     }
 
@@ -108,18 +180,26 @@
 
     .caret{
       display:inline-block;
-      width:2px; height:1em;
+      width:2px;
+      height:1em;
       margin-left:8px;
+
       background:rgba(255,255,255,.9);
       animation:blink 1s infinite;
+
       transform:translateY(6px);
       border-radius:2px;
     }
-    @keyframes blink{0%,50%,100%{opacity:1}25%,75%{opacity:0}}
+
+    @keyframes blink{
+      0%,50%,100%{ opacity:1; }
+      25%,75%{ opacity:0; }
+    }
 
     .subtitle{
       margin:16px auto 0;
       max-width:760px;
+
       color:var(--muted);
       font-size:clamp(14px,2.4vw,18px);
       line-height:1.55;
@@ -136,18 +216,27 @@
     .btn{
       border:0;
       cursor:pointer;
+
       padding:12px 18px;
       border-radius:999px;
+
       font-weight:700;
       font-size:15px;
+
       transition:transform .15s ease, opacity .15s ease;
     }
-    .btn:hover{transform:translateY(-1px); opacity:.96;}
+
+    .btn:hover{
+      transform:translateY(-1px);
+      opacity:.96;
+    }
+
     .btn.primary{
       background:rgba(255,255,255,.10);
       color:#fff;
       border:1px solid rgba(255,255,255,.14);
     }
+
     .btn.secondary{
       background:#fff;
       color:#071021;
@@ -158,40 +247,65 @@
       display:inline-flex;
       align-items:center;
       gap:10px;
+
       color:rgba(255,255,255,.78);
       font-size:14px;
+
       cursor:pointer;
       user-select:none;
+
       padding:8px 12px;
       border-radius:999px;
+
       border:1px solid rgba(255,255,255,.10);
       background:rgba(0,0,0,.18);
+
       transition:transform .15s ease, opacity .15s ease;
     }
-    .hintDown:hover{ transform: translateY(-1px); opacity:.95; }
+
+    .hintDown:hover{
+      transform:translateY(-1px);
+      opacity:.95;
+    }
+
     .arrow{
-      width:10px; height:10px;
+      width:10px;
+      height:10px;
+
       border-right:2px solid rgba(255,255,255,.85);
       border-bottom:2px solid rgba(255,255,255,.85);
-      transform: rotate(45deg);
-      animation: bob 1.3s ease-in-out infinite;
-    }
-    @keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(0,3px)}}
 
-    /* SECTION */
+      transform:rotate(45deg);
+      animation:bob 1.3s ease-in-out infinite;
+    }
+
+    @keyframes bob{
+      0%,100%{
+        transform:rotate(45deg) translate(0,0);
+      }
+      50%{
+        transform:rotate(45deg) translate(0,3px);
+      }
+    }
+
+    /* Секція */
     .section{
       padding:80px 28px;
     }
+
     .wrap{
       width:min(980px,100%);
       margin:0 auto;
       padding:26px;
       border-radius:26px;
+
       background:rgba(0,0,0,.22);
       border:1px solid rgba(255,255,255,.10);
+
       backdrop-filter:blur(10px);
       -webkit-backdrop-filter:blur(10px);
     }
+
     .h2{
       margin:0;
       font-size:28px;
@@ -199,97 +313,148 @@
       line-height:1.2;
     }
 
-    /* GEE */
+    /* Google Earth Engine */
     .gee-shell{
       margin-top:18px;
       border-radius:24px;
       overflow:hidden;
+
       border:1px solid rgba(255,255,255,.10);
       background:rgba(0,0,0,.20);
     }
+
     .gee-placeholder{
       display:flex;
       gap:14px;
       align-items:center;
       padding:18px;
     }
+
     .gee-badge{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:56px; height:56px;
+
+      width:56px;
+      height:56px;
+
       border-radius:16px;
       font-weight:900;
       letter-spacing:-0.02em;
+
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.10);
     }
 
-    .gee-frameWrap{ padding:14px; }
+    .gee-frameWrap{
+      padding:14px;
+    }
+
     .gee-frameWrap iframe{
       width:100%;
       height:min(72vh,820px);
+
       border:0;
       border-radius:18px;
+
       background:rgba(255,255,255,.06);
     }
+
     .gee-actions{
       margin-top:12px;
       display:flex;
       gap:10px;
       flex-wrap:wrap;
+
       justify-content:flex-end;
       align-items:center;
     }
 
     .loader{
-      width:18px; height:18px;
+      width:18px;
+      height:18px;
+
       border-radius:50%;
       border:2px solid rgba(255,255,255,.25);
-      border-top-color: rgba(255,255,255,.85);
+      border-top-color:rgba(255,255,255,.85);
+
       animation:spin .8s linear infinite;
       display:none;
     }
-    @keyframes spin{ to{ transform: rotate(360deg);} }
 
-    /* fullscreen overlay */
+    @keyframes spin{
+      to{
+        transform:rotate(360deg);
+      }
+    }
+
+    /* Повноекранне вікно */
     .gee-overlay{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.78);
+
+      background:rgba(0,0,0,.78);
+
       backdrop-filter:blur(10px);
       -webkit-backdrop-filter:blur(10px);
+
       z-index:9999;
+
       display:grid;
       place-items:center;
+
       padding:18px;
     }
+
     .gee-overlay .frame{
       width:min(1200px,96vw);
       height:min(860px,88vh);
+
       border-radius:18px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 30px 120px rgba(0,0,0,0.55);
-      background:rgba(255,255,255,0.06);
+
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 30px 120px rgba(0,0,0,.55);
+
+      background:rgba(255,255,255,.06);
     }
-    .gee-overlay iframe{ width:100%; height:100%; border:0; }
+
+    .gee-overlay iframe{
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
     .gee-overlay .topbar{
       position:absolute;
       top:14px;
       right:14px;
+
       display:flex;
       gap:10px;
     }
 
-    @media (prefers-reduced-motion: reduce){
-      body,.gradient,.b1,.b2,.b3,.arrow{ animation:none !important; }
-      html,body{ scroll-behavior:auto; }
+    @media (prefers-reduced-motion:reduce){
+      body,
+      .gradient,
+      .b1,
+      .b2,
+      .b3,
+      .arrow{
+        animation:none !important;
+      }
+
+      html,
+      body{
+        scroll-behavior:auto;
+      }
     }
   </style>
+
 </head>
 
 <body>
+
   <div class="bg-blobs" aria-hidden="true">
     <span class="blob b1"></span>
     <span class="blob b2"></span>
@@ -297,223 +462,566 @@
   </div>
 
   <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="card">
-        <h1 class="title">
-          <span id="typed" class="gradient"></span><span class="caret" aria-hidden="true"></span>
-        </h1>
 
-        <p class="subtitle">
-          Приветственная страница с печатью, голубым градиентом и загрузкой твоего проекта Google Earth Engine по кнопке.
-        </p>
+```
+<!-- Головний екран -->
+<section class="hero">
+  <div class="card">
 
-        <div class="actions">
-          <button class="btn secondary" id="scrollToGee">Открыть мой GEE</button>
-          <button class="btn primary" id="restartBtn">Повторить печать</button>
+    <h1 class="title">
+      <span id="typed" class="gradient"></span>
+      <span class="caret" aria-hidden="true"></span>
+    </h1>
+
+    <p class="subtitle">
+      Вітаю на сторінці мого проєкту. Тут представлено інтерактивну
+      карту, створену за допомогою Google Earth Engine.
+    </p>
+
+    <div class="actions">
+      <button class="btn secondary" id="scrollToGee">
+        Відкрити мій проєкт GEE
+      </button>
+
+      <button class="btn primary" id="restartBtn">
+        Повторити анімацію
+      </button>
+    </div>
+
+    <div
+      class="hintDown"
+      id="scrollHint"
+      role="button"
+      tabindex="0"
+    >
+      <div class="arrow"></div>
+      <span>Прокрутіть вниз</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- Секція Google Earth Engine -->
+<section class="section" id="geeSection">
+
+  <div class="wrap">
+
+    <h2 class="h2">
+      Мій проєкт у
+      <span class="gradient">Google Earth Engine</span>
+    </h2>
+
+    <p class="subtitle" style="margin-top:10px;">
+      Натисніть кнопку «Завантажити», щоб відкрити інтерактивну карту
+      безпосередньо на цій сторінці. За потреби її також можна
+      переглянути в повноекранному режимі.
+    </p>
+
+    <div class="gee-shell">
+
+      <div class="gee-placeholder" id="geePlaceholder">
+
+        <div class="gee-badge gradient">
+          GEE
         </div>
 
-        <div class="hintDown" id="scrollHint" role="button" tabindex="0">
-          <div class="arrow"></div>
-          <span>Листай вниз</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- GEE SECTION -->
-    <section class="section" id="geeSection">
-      <div class="wrap">
-        <h2 class="h2">Мой проект в <span class="gradient">Google Earth Engine</span></h2>
-        <p class="subtitle" style="margin-top:10px;">
-          Нажми “Загрузить” — и карта откроется прямо здесь. Также можно открыть на весь экран.
-        </p>
-
-        <div class="gee-shell">
-          <div class="gee-placeholder" id="geePlaceholder">
-            <div class="gee-badge gradient">GEE</div>
-            <div>
-              <div style="font-weight:800; font-size:18px;">Интерактивная карта</div>
-              <div style="color: rgba(255,255,255,.72); margin-top:6px;">
-                Подгружается после клика (быстрее старт страницы).
-              </div>
-            </div>
-
-            <div style="margin-left:auto; display:flex; gap:10px; align-items:center;">
-              <div class="loader" id="geeLoader"></div>
-              <button class="btn secondary" id="loadGeeBtn">Загрузить</button>
-            </div>
+        <div>
+          <div style="font-weight:800; font-size:18px;">
+            Інтерактивна карта
           </div>
 
-          <div class="gee-frameWrap" id="geeFrameWrap" hidden>
-            <iframe id="geeFrame" title="Google Earth Engine" loading="lazy" referrerpolicy="no-referrer"></iframe>
-
-            <div class="gee-actions">
-              <span style="color: rgba(255,255,255,.65); font-size: 13px;" id="geeStatus"></span>
-              <button class="btn primary" id="fsGeeBtn">На весь экран</button>
-              <button class="btn primary" id="openGeeTab">Открыть в новой вкладке</button>
-              <button class="btn primary" id="unloadGeeBtn">Выгрузить</button>
-            </div>
+          <div
+            style="
+              color:rgba(255,255,255,.72);
+              margin-top:6px;
+            "
+          >
+            Карта завантажується після натискання кнопки,
+            що забезпечує швидший запуск сторінки.
           </div>
         </div>
 
+        <div
+          style="
+            margin-left:auto;
+            display:flex;
+            gap:10px;
+            align-items:center;
+          "
+        >
+          <div class="loader" id="geeLoader"></div>
+
+          <button class="btn secondary" id="loadGeeBtn">
+            Завантажити
+          </button>
+        </div>
+
       </div>
-    </section>
+
+      <div
+        class="gee-frameWrap"
+        id="geeFrameWrap"
+        hidden
+      >
+
+        <iframe
+          id="geeFrame"
+          title="Google Earth Engine"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        ></iframe>
+
+        <div class="gee-actions">
+
+          <span
+            style="
+              color:rgba(255,255,255,.65);
+              font-size:13px;
+            "
+            id="geeStatus"
+          ></span>
+
+          <button class="btn primary" id="fsGeeBtn">
+            На весь екран
+          </button>
+
+          <button class="btn primary" id="openGeeTab">
+            Відкрити в новій вкладці
+          </button>
+
+          <button class="btn primary" id="unloadGeeBtn">
+            Закрити карту
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+```
+
   </main>
 
   <script>
-    // ===== Typing greeting =====
+
+    // ===== Анімація тексту =====
+
     const typedEl = document.getElementById("typed");
 
-const messages = [
-  "Добро пожаловать.",
-  "Это демонстрация моего проекта.",
-  "Ниже — интерактивная карта."
-];
+    const messages = [
+      "Ласкаво просимо.",
+      "Це демонстрація мого проєкту.",
+      "Нижче представлено інтерактивну карту."
+    ];
 
+    let msgIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let timer = null;
 
-    let msgIndex = 0, charIndex = 0, isDeleting = false, timer = null;
 
     function tick(){
+
       const current = messages[msgIndex];
 
       if (!isDeleting) {
-        typedEl.textContent = current.slice(0, charIndex++);
+
+        typedEl.textContent =
+          current.slice(0, charIndex++);
+
         if (charIndex > current.length) {
-          timer = setTimeout(() => { isDeleting = true; tick(); }, 1100);
+
+          timer = setTimeout(() => {
+            isDeleting = true;
+            tick();
+          }, 1100);
+
           return;
         }
+
       } else {
-        typedEl.textContent = current.slice(0, charIndex--);
+
+        typedEl.textContent =
+          current.slice(0, charIndex--);
+
         if (charIndex < 0) {
+
           isDeleting = false;
-          msgIndex = (msgIndex + 1) % messages.length;
+
+          msgIndex =
+            (msgIndex + 1) % messages.length;
+
           charIndex = 0;
         }
       }
 
-      timer = setTimeout(tick, isDeleting ? 35 : 60);
+      timer = setTimeout(
+        tick,
+        isDeleting ? 35 : 60
+      );
     }
 
+
     function restartTyping(){
+
       clearTimeout(timer);
-      msgIndex = 0; charIndex = 0; isDeleting = false;
+
+      msgIndex = 0;
+      charIndex = 0;
+      isDeleting = false;
+
       typedEl.textContent = "";
+
       tick();
     }
 
-    tick();
-    document.getElementById("restartBtn").addEventListener("click", restartTyping);
 
-    // ===== Scroll to GEE section =====
-    const geeSection = document.getElementById("geeSection");
+    tick();
+
+
+    document
+      .getElementById("restartBtn")
+      .addEventListener(
+        "click",
+        restartTyping
+      );
+
+
+    // ===== Прокрутка до секції GEE =====
+
+    const geeSection =
+      document.getElementById("geeSection");
+
+
     function goToGEE(){
-      geeSection.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      geeSection.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
     }
 
-    document.getElementById("scrollToGee").addEventListener("click", goToGEE);
-    document.getElementById("scrollHint").addEventListener("click", goToGEE);
-    document.getElementById("scrollHint").addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") goToGEE();
-    });
 
-    // ===== GEE iframe load on click =====
-    const GEE_URL = "https://merlintasher1337.users.earthengine.app/view/test";
+    document
+      .getElementById("scrollToGee")
+      .addEventListener(
+        "click",
+        goToGEE
+      );
 
-    const loadGeeBtn = document.getElementById("loadGeeBtn");
-    const unloadGeeBtn = document.getElementById("unloadGeeBtn");
-    const openGeeTab = document.getElementById("openGeeTab");
-    const fsGeeBtn = document.getElementById("fsGeeBtn");
 
-    const geePlaceholder = document.getElementById("geePlaceholder");
-    const geeFrameWrap = document.getElementById("geeFrameWrap");
-    const geeFrame = document.getElementById("geeFrame");
-    const geeLoader = document.getElementById("geeLoader");
-    const geeStatus = document.getElementById("geeStatus");
+    document
+      .getElementById("scrollHint")
+      .addEventListener(
+        "click",
+        goToGEE
+      );
 
-    function setStatus(text){ geeStatus.textContent = text || ""; }
+
+    document
+      .getElementById("scrollHint")
+      .addEventListener(
+        "keydown",
+        (e) => {
+
+          if (
+            e.key === "Enter" ||
+            e.key === " "
+          ) {
+            goToGEE();
+          }
+
+        }
+      );
+
+
+    // ===== Завантаження Google Earth Engine =====
+
+    const GEE_URL =
+      "https://merlintasher1337.users.earthengine.app/view/test";
+
+
+    const loadGeeBtn =
+      document.getElementById("loadGeeBtn");
+
+    const unloadGeeBtn =
+      document.getElementById("unloadGeeBtn");
+
+    const openGeeTab =
+      document.getElementById("openGeeTab");
+
+    const fsGeeBtn =
+      document.getElementById("fsGeeBtn");
+
+
+    const geePlaceholder =
+      document.getElementById("geePlaceholder");
+
+    const geeFrameWrap =
+      document.getElementById("geeFrameWrap");
+
+    const geeFrame =
+      document.getElementById("geeFrame");
+
+    const geeLoader =
+      document.getElementById("geeLoader");
+
+    const geeStatus =
+      document.getElementById("geeStatus");
+
+
+    function setStatus(text){
+
+      geeStatus.textContent =
+        text || "";
+
+    }
+
 
     function loadGEE(){
-      // показываем UI загрузки
-      geeLoader.style.display = "inline-block";
+
+      /* Відображаємо інтерфейс завантаження */
+
+      geeLoader.style.display =
+        "inline-block";
+
       loadGeeBtn.disabled = true;
-      loadGeeBtn.textContent = "Загрузка…";
-      setStatus("Загрузка приложения…");
+
+      loadGeeBtn.textContent =
+        "Завантаження…";
+
+      setStatus(
+        "Завантаження застосунку…"
+      );
+
 
       geePlaceholder.hidden = true;
+
       geeFrameWrap.hidden = false;
 
-      // грузим только сейчас
-      geeFrame.src = GEE_URL;
 
-      // по загрузке iframe
+      /* Завантажуємо карту лише після натискання */
+
+      geeFrame.src =
+        GEE_URL;
+
+
+      /* Після завантаження iframe */
+
       geeFrame.onload = () => {
-        geeLoader.style.display = "none";
-        loadGeeBtn.disabled = false;
-        loadGeeBtn.textContent = "Перезагрузить";
-        setStatus("Готово ✅");
+
+        geeLoader.style.display =
+          "none";
+
+        loadGeeBtn.disabled =
+          false;
+
+        loadGeeBtn.textContent =
+          "Перезавантажити";
+
+        setStatus(
+          "Готово ✓"
+        );
+
       };
+
     }
+
 
     function unloadGEE(){
-      geeFrame.onload = null;
-      geeFrame.src = "about:blank";
-      geeFrameWrap.hidden = true;
-      geePlaceholder.hidden = false;
 
-      geeLoader.style.display = "none";
-      loadGeeBtn.disabled = false;
-      loadGeeBtn.textContent = "Загрузить";
+      geeFrame.onload = null;
+
+      geeFrame.src =
+        "about:blank";
+
+
+      geeFrameWrap.hidden =
+        true;
+
+      geePlaceholder.hidden =
+        false;
+
+
+      geeLoader.style.display =
+        "none";
+
+      loadGeeBtn.disabled =
+        false;
+
+      loadGeeBtn.textContent =
+        "Завантажити";
+
+
       setStatus("");
+
     }
+
 
     function openGEEInNewTab(){
-      window.open(GEE_URL, "_blank", "noopener,noreferrer");
+
+      window.open(
+        GEE_URL,
+        "_blank",
+        "noopener,noreferrer"
+      );
+
     }
+
 
     function openFullscreenGEE(){
-      // если ещё не загружено — загрузим
-      if (!geeFrame.src || geeFrame.src === "about:blank") loadGEE();
 
-      const overlay = document.createElement("div");
-      overlay.className = "gee-overlay";
+      /* Якщо карта ще не завантажена — завантажуємо її */
 
-      const topbar = document.createElement("div");
-      topbar.className = "topbar";
+      if (
+        !geeFrame.src ||
+        geeFrame.src === "about:blank"
+      ) {
+        loadGEE();
+      }
 
-      const closeBtn = document.createElement("button");
-      closeBtn.className = "btn secondary";
-      closeBtn.textContent = "Закрыть";
 
-      const openTabBtn = document.createElement("button");
-      openTabBtn.className = "btn primary";
-      openTabBtn.textContent = "В новой вкладке";
-      openTabBtn.onclick = openGEEInNewTab;
+      const overlay =
+        document.createElement("div");
 
-      topbar.appendChild(openTabBtn);
-      topbar.appendChild(closeBtn);
+      overlay.className =
+        "gee-overlay";
 
-      const frame = document.createElement("div");
-      frame.className = "frame";
 
-      const iframe = document.createElement("iframe");
-      iframe.src = geeFrame.src;
-      iframe.title = "GEE Fullscreen";
-      iframe.referrerPolicy = "no-referrer";
+      const topbar =
+        document.createElement("div");
 
-      frame.appendChild(iframe);
-      overlay.appendChild(frame);
-      overlay.appendChild(topbar);
+      topbar.className =
+        "topbar";
 
-      closeBtn.onclick = () => overlay.remove();
-      overlay.addEventListener("click", (e) => { if (e.target === overlay) overlay.remove(); });
 
-      document.body.appendChild(overlay);
+      const closeBtn =
+        document.createElement("button");
+
+      closeBtn.className =
+        "btn secondary";
+
+      closeBtn.textContent =
+        "Закрити";
+
+
+      const openTabBtn =
+        document.createElement("button");
+
+      openTabBtn.className =
+        "btn primary";
+
+      openTabBtn.textContent =
+        "Відкрити в новій вкладці";
+
+      openTabBtn.onclick =
+        openGEEInNewTab;
+
+
+      topbar.appendChild(
+        openTabBtn
+      );
+
+      topbar.appendChild(
+        closeBtn
+      );
+
+
+      const frame =
+        document.createElement("div");
+
+      frame.className =
+        "frame";
+
+
+      const iframe =
+        document.createElement("iframe");
+
+      iframe.src =
+        geeFrame.src;
+
+      iframe.title =
+        "Google Earth Engine — повноекранний режим";
+
+      iframe.referrerPolicy =
+        "no-referrer";
+
+
+      frame.appendChild(
+        iframe
+      );
+
+
+      overlay.appendChild(
+        frame
+      );
+
+      overlay.appendChild(
+        topbar
+      );
+
+
+      closeBtn.onclick =
+        () => overlay.remove();
+
+
+      overlay.addEventListener(
+        "click",
+        (e) => {
+
+          if (
+            e.target === overlay
+          ) {
+            overlay.remove();
+          }
+
+        }
+      );
+
+
+      document.body.appendChild(
+        overlay
+      );
+
     }
 
-    loadGeeBtn.addEventListener("click", () => { goToGEE(); loadGEE(); });
-    unloadGeeBtn.addEventListener("click", unloadGEE);
-    openGeeTab.addEventListener("click", openGEEInNewTab);
-    fsGeeBtn.addEventListener("click", openFullscreenGEE);
+
+    // ===== Обробники кнопок =====
+
+    loadGeeBtn.addEventListener(
+      "click",
+      () => {
+
+        goToGEE();
+        loadGEE();
+
+      }
+    );
+
+
+    unloadGeeBtn.addEventListener(
+      "click",
+      unloadGEE
+    );
+
+
+    openGeeTab.addEventListener(
+      "click",
+      openGEEInNewTab
+    );
+
+
+    fsGeeBtn.addEventListener(
+      "click",
+      openFullscreenGEE
+    );
+
   </script>
+
 </body>
 </html>
